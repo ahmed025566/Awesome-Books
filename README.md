@@ -26,11 +26,11 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [My-Portfolio] <a name="about-project"></a>
+# 📖 [Awesome-Books] <a name="about-project"></a>
 
 > Awesome Books . 
 
-**[My-Portfolio]** This is an implementaion an practing on javascript functionility.
+**[Awesome-Books]** is a project that is aimed at teaching us how to code basic functionalities using javascript.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -111,9 +111,9 @@ You can deploy this project using:
 
 <!-- AUTHORS -->
 
-## 👤Author <a name="author"></a>
+## 👤Authors <a name="author"></a>
 
-> This is a solo project and you can find my contact details below in case you want to reach out:
+> This is a pair programming project and you can find our contact details below in case you want to reach out:
 
 👤 **Ahmed Salah**
 
@@ -121,7 +121,10 @@ You can deploy this project using:
 - Twitter: [@AhmedEl18692792](https://twitter.com/AhmedEl18692792)
 - LinkedIn: [Ahmed Salah](https://www.linkedin.com/in/ahmed-salah025566)
 
+👤 **Nurbol Sultanov**
 
+- GitHub: [@everinurmind](https://github.com/everinurmind)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/everinurmind)
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
