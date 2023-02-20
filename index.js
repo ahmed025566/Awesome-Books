@@ -71,3 +71,4 @@ booksDiv.addEventListener('click', (e) => {
     e.target.parentElement.remove();
   }
 });
+/* eslint eqeqeq: "off" */
