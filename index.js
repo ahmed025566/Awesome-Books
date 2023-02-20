@@ -52,7 +52,6 @@ function getDataFromLocalStorage() {
   }
 }
 
-
 getDataFromLocalStorage();
 
 add.onclick = function () {
@@ -62,14 +61,13 @@ add.onclick = function () {
     author.value = '';
   }
 };
-
+function deleteBook(bookID) {
+  books = books.filter((book) => book.id != bookID);
+  addToLocalStorage(books);
+}
 booksDiv.addEventListener('click', (e) => {
   if (e.target.classList.contains('remove')) {
     deleteBook(e.target.parentElement.getAttribute('data-id'));
     e.target.parentElement.remove();
   }
 });
-function deleteBook(bookID) {
-    books = books.filter((book) => book.id != bookID);
-    addToLocalStorage(books);
-  }
