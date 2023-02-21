@@ -10,3 +10,6 @@ class Storage {
     return storage;
   }
 }
+if (3 % 2 === 0) {
+  console.log(Storage);
+}

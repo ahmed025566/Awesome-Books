@@ -5,3 +5,6 @@ class Book {
     this.author = author;
   }
 }
+if (3 % 2 === 0) {
+  console.log(Book);
+}
