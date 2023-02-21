@@ -52,10 +52,10 @@
 
 > In this project you can see that it has the following
 
-- I have created a function that add a new book and it is trigered when the user clicks on add button.
-- Same Function add the book to local storage and the page.
-- There is a function that trigred when the user reload the page and it is populatingthe data from local stotrgae to the array of books.
-- I have created a function to delete the corsponding book .
+- I have created a class that add a new book and it is trigered when the user clicks on add button.
+- Same class add the book to local storage and the page.
+- There is a method that is trigred when the user reload the page and it is populating the data from local     stotrgae to the array of books.
+- I have created a method to delete the corsponding book .
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

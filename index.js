@@ -1,74 +1,82 @@
-const booksDiv = document.querySelector('.books');
-const tiltle = document.querySelector('.title');
-const author = document.querySelector('.author');
-const add = document.querySelector('.add');
+let count = 1;
+class BookManager {
+  constructor() {
+    this.booksDiv = document.querySelector('.books');
+    this.title = document.querySelector('.title');
+    this.author = document.querySelector('.author');
+    this.add = document.querySelector('.add');
+    this.books = [];
+    this.getBooksFromLocalStorage();
+    this.addElementsToPage();
+    this.addEventListeners();
+  }
 
-let books = [];
-if (localStorage.getItem('books')) {
-  books = JSON.parse(localStorage.getItem('books'));
-}
+  addElementsToPage() {
+    this.booksDiv.innerHTML = '';
+    this.books.forEach((book) => {
+      const div = document.createElement('div');
+      div.className = 'book';
+      if (book.count % 2 === 0) {
+        div.classList.add('gray');
+      }
+      div.setAttribute('data-id', book.id);
+      const text = document.createElement('p');
+      text.append(document.createTextNode(book.title));
+      text.append(document.createTextNode(' by '));
+      text.append(document.createTextNode(book.author));
+      div.append(text);
+      const remove = document.createElement('button');
+      remove.className = 'remove';
+      remove.appendChild(document.createTextNode('Remove'));
+      div.appendChild(remove);
 
-function addElementsTopage(books) {
-  booksDiv.innerHTML = '';
-  books.forEach((book) => {
-    const div = document.createElement('div');
-    div.className = 'book';
-    div.setAttribute('data-id', book.id);
-    div.append(document.createTextNode(book.title));
-    div.append(document.createElement('br'));
-    div.append(document.createTextNode(book.author));
-    div.append(document.createElement('br'));
-    const remove = document.createElement('button');
-    remove.className = 'remove';
-    remove.appendChild(document.createTextNode('Remove'));
-    div.appendChild(remove);
-    const borderBottom = document.createElement('hr');
-    // borderBottom.style.width = "50px";
-    div.append(borderBottom);
-    booksDiv.append(div);
-  });
-}
+      this.booksDiv.append(div);
+    });
+  }
 
-function addToLocalStorage(books) {
-  localStorage.setItem('books', JSON.stringify(books));
-}
+  addToLocalStorage() {
+    localStorage.setItem('books', JSON.stringify(this.books));
+  }
 
-function addBook(title, author) {
-  const book = {
-    id: Date.now(),
-    title,
-    author,
-  };
-  books.push(book);
-  addElementsTopage(books);
-  addToLocalStorage(books);
-}
+  addBook() {
+    if (this.title.value !== '' && this.author.value !== '') {
+      const book = {
+        id: Date.now(),
+        title: this.title.value,
+        author: this.author.value,
+        count,
+      };
+      this.books.push(book);
+      this.addElementsToPage();
+      this.addToLocalStorage();
+      this.title.value = '';
+      this.author.value = '';
+    }
+    count += 1;
+  }
 
-function getDataFromLocalStorage() {
-  const data = localStorage.getItem('books');
-  if (data) {
-    const books = JSON.parse(data);
-    addElementsTopage(books);
+  getBooksFromLocalStorage() {
+    const data = localStorage.getItem('books');
+    if (data) {
+      this.books = JSON.parse(data);
+    }
+  }
+
+  deleteBook(bookID) {
+    this.books = this.books.filter((book) => book.id !== +bookID);
+    this.addToLocalStorage();
+  }
+
+  addEventListeners() {
+    this.add.onclick = this.addBook.bind(this);
+
+    this.booksDiv.addEventListener('click', (e) => {
+      if (e.target.classList.contains('remove')) {
+        this.deleteBook(e.target.parentElement.getAttribute('data-id'));
+        e.target.parentElement.remove();
+      }
+    });
   }
 }
-
-getDataFromLocalStorage();
-
-add.onclick = function () {
-  if (tiltle.value !== '' && author.value !== '') {
-    addBook(tiltle.value, author.value);
-    tiltle.value = '';
-    author.value = '';
-  }
-};
-function deleteBook(bookID) {
-  books = books.filter((book) => book.id != bookID);
-  addToLocalStorage(books);
-}
-booksDiv.addEventListener('click', (e) => {
-  if (e.target.classList.contains('remove')) {
-    deleteBook(e.target.parentElement.getAttribute('data-id'));
-    e.target.parentElement.remove();
-  }
-});
-/* eslint eqeqeq: "off" */
+const bookManager = new BookManager();
+bookManager.addElementsToPage();
