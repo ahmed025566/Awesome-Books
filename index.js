@@ -1,75 +1,89 @@
-class BookManager {
-  constructor() {
-    this.booksDiv = document.querySelector('.books');
-    this.title = document.querySelector('.title');
-    this.author = document.querySelector('.author');
-    this.add = document.querySelector('.add');
-    this.books = [];
-    this.getBooksFromLocalStorage();
-    this.addElementsToPage();
-    this.addEventListeners();
+const booksDiv = document.querySelector('.books');
+const title = document.querySelector('.title');
+const author = document.querySelector('.author');
+const add = document.querySelector('.add');
+
+class Book {
+  constructor(id, title, author) {
+    this.id = id;
+    this.title = title;
+    this.author = author;
+  }
+}
+
+class Storage {
+  static addToLocalStorage(books) {
+    const storage = localStorage.setItem('books', JSON.stringify(books));
+    return storage;
   }
 
-  addElementsToPage() {
-    this.booksDiv.innerHTML = '';
-    this.books.forEach((book) => {
+  static getFromTheStorage() {
+    const storage = localStorage.getItem('books') === null
+      ? [] : JSON.parse(localStorage.getItem('books'));
+    return storage;
+  }
+}
+let books = Storage.getFromTheStorage();
+
+let count = 1;
+class Libraray {
+  static displayData() {
+    booksDiv.innerHTML = '';
+    books.forEach((book) => {
       const div = document.createElement('div');
       div.className = 'book';
+      if (count % 2 === 0) {
+        div.classList.add('gray');
+      }
+      count += 1;
       div.setAttribute('data-id', book.id);
-      div.append(document.createTextNode(`${book.title} by ${book.author}`));
-      div.append(document.createElement('br'));
+      const text = document.createElement('p');
+      text.append(document.createTextNode(book.title));
+      text.append(document.createTextNode(' by '));
+      text.append(document.createTextNode(book.author));
+      div.append(text);
       const remove = document.createElement('button');
-      div.append(document.createElement('br'));
       remove.className = 'remove';
       remove.appendChild(document.createTextNode('Remove'));
       div.appendChild(remove);
-      const borderBottom = document.createElement('hr');
-      div.append(borderBottom);
-      this.booksDiv.append(div);
+      booksDiv.append(div);
     });
   }
 
-  addToLocalStorage() {
-    localStorage.setItem('books', JSON.stringify(this.books));
+  static clearInput() {
+    title.value = '';
+    author.value = '';
   }
 
-  addBook() {
-    if (this.title.value !== '' && this.author.value !== '') {
-      const book = {
-        id: Date.now(),
-        title: this.title.value,
-        author: this.author.value,
-      };
-      this.books.push(book);
-      this.addElementsToPage();
-      this.addToLocalStorage();
-      this.title.value = '';
-      this.author.value = '';
-    }
-  }
-
-  getBooksFromLocalStorage() {
-    const data = localStorage.getItem('books');
-    if (data) {
-      this.books = JSON.parse(data);
-    }
-  }
-
-  deleteBook(bookID) {
-    this.books = this.books.filter((book) => book.id != bookID);
-    this.addToLocalStorage();
-  }
-
-  addEventListeners() {
-    this.add.onclick = this.addBook.bind(this);
-    this.booksDiv.addEventListener('click', (e) => {
+  static removebook() {
+    booksDiv.addEventListener('click', (e) => {
       if (e.target.classList.contains('remove')) {
-        this.deleteBook(e.target.parentElement.getAttribute('data-id'));
         e.target.parentElement.remove();
       }
+      const btnId = e.target.parentElement.getAttribute('data-id');
+      Libraray.deleteBook(btnId);
     });
   }
+
+  static deleteBook(bookID) {
+    books = books.filter((book) => book.id !== +bookID);
+    Storage.addToLocalStorage(books);
+  }
 }
-const bookManager = new BookManager();
-bookManager.displayBooks();
-/* eslint eqeqeq: "off" */
+add.addEventListener('click', () => {
+  if (author.value !== '' && title.value !== '') {
+    const id = Date.now();
+
+    const newBook = new Book(id, title.value, author.value);
+    books.push(newBook);
+    Libraray.displayData();
+    Libraray.clearInput();
+    Storage.addToLocalStorage(books);
+  }
+});
+window.addEventListener('DOMContentLoaded', () => {
+  Libraray.displayData();
+  // remove from the dom
+  Libraray.removebook();
+});
+/* eslint max-classes-per-file: "off" */
