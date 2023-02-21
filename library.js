@@ -3,26 +3,6 @@ const title = document.querySelector('.title');
 const author = document.querySelector('.author');
 const add = document.querySelector('.add');
 
-class Book {
-  constructor(id, title, author) {
-    this.id = id;
-    this.title = title;
-    this.author = author;
-  }
-}
-
-class Storage {
-  static addToLocalStorage(books) {
-    const storage = localStorage.setItem('books', JSON.stringify(books));
-    return storage;
-  }
-
-  static getFromTheStorage() {
-    const storage = localStorage.getItem('books') === null
-      ? [] : JSON.parse(localStorage.getItem('books'));
-    return storage;
-  }
-}
 let books = Storage.getFromTheStorage();
 
 let count = 1;
