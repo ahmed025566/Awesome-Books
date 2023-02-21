@@ -2,4 +2,86 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1 {
+  font-size: 55px;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.books {
+  width: 100%;
+  margin: 20px auto;
+  border: 3px solid black;
+}
+
+.book {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 35px;
+}
+
+.book p {
+  margin-left: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.remove {
+  width: 100px;
+  background-color: white;
+  height: 70%;
+  margin-right: 30px;
+  border: 3px solid black;
+  box-shadow: 2px 2px black;
+}
+
+.sprator {
+  width: 50%;
+  height: 2.5px;
+  background-color: black;
+  margin: 30px auto;
+}
+
+h2 {
+  text-align: center;
+  font-size: 45px;
+}
+
+.form {
+  width: 35%;
+  height: 180px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.title,
+.author {
+  width: 100%;
+  height: 35px;
+  border: 3px solid black;
+  color: black;
+  font-size: 18px;
+  padding-left: 10px;
+  display: block;
+}
+
+.add {
+  width: 70px;
+  height: 40px;
+  font-size: 17px;
+  font-weight: 600;
+  border: 3px solid black;
+  box-shadow: 2px 2px black;
+}
+
+.gray {
+  background-color: #ddd;
 }
