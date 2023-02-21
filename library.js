@@ -2,7 +2,7 @@ const booksDiv = document.querySelector('.books');
 const title = document.querySelector('.title');
 const author = document.querySelector('.author');
 const add = document.querySelector('.add');
-//eslint no-undef: "off" 
+/* eslint no-undef: "off" */
 let books = Storage.getFromTheStorage();
 
 let count = 1;
