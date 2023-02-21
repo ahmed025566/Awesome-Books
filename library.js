@@ -66,4 +66,3 @@ window.addEventListener('DOMContentLoaded', () => {
   // remove from the dom
   Libraray.removebook();
 });
-/* eslint max-classes-per-file: "off" */
