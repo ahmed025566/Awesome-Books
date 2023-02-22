@@ -80,3 +80,61 @@ class BookManager {
 }
 const bookManager = new BookManager();
 bookManager.addElementsToPage();
+
+function displayDate() {
+  const today = new Date();
+  const date = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+  const time = `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
+  const dateTime = `${date} ${time}`;
+
+  document.getElementById('displayDateTime').innerHTML = dateTime;
+}
+
+const list = document.getElementById('list');
+const addNew = document.getElementById('add-book');
+const contact = document.getElementById('contact');
+
+list.onclick = function () {
+  const addNew = document.querySelector('.add-section');
+  addNew.classList.add('display-none');
+  const contact = document.querySelector('.Contact-section');
+  contact.classList.add('display-none');
+  const list = document.querySelector('.books');
+  list.classList.remove('display-none');
+  const intro = document.getElementById('intro');
+  intro.innerHTML = 'All Awesome Books';
+  displayDate();
+};
+addNew.onclick = function () {
+  const list = document.querySelector('.books');
+  list.classList.add('display-none');
+  const contact = document.querySelector('.Contact-section');
+  contact.classList.add('display-none');
+  const addNew = document.querySelector('.add-section');
+  addNew.classList.remove('display-none');
+  const intro = document.getElementById('intro');
+  intro.innerHTML = 'Add a new book';
+  displayDate();
+};
+contact.onclick = function () {
+  const list = document.querySelector('.books');
+  list.classList.add('display-none');
+  const contact = document.querySelector('.Contact-section');
+  contact.classList.remove('display-none');
+  const addNew = document.querySelector('.add-section');
+  addNew.classList.add('display-none');
+  const intro = document.getElementById('intro');
+  intro.innerHTML = 'Conatct Information';
+  displayDate();
+};
+window.onload = function () {
+  const addNew = document.querySelector('.add-section');
+  addNew.classList.add('display-none');
+  const contact = document.querySelector('.Contact-section');
+  contact.classList.add('display-none');
+  const list = document.querySelector('.books');
+  list.classList.remove('display-none');
+  const intro = document.getElementById('intro');
+  intro.innerHTML = 'All Awesome Books';
+  displayDate();
+};

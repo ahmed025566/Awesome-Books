@@ -56,6 +56,7 @@
 - Same class add the book to local storage and the page.
 - There is a method that is trigred when the user reload the page and it is populating the data from local     stotrgae to the array of books.
 - I have created a method to delete the corsponding book .
+- I have created three functions to display the right section when the user clicks on the corresponding link.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
