@@ -8,16 +8,43 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <h1>All Awesome Books</h1>
+    <header>
+      <span class="logo">Awsome Books</span>
+      <nav>
+        <ul class="navigation">
+            <li id="list">List</li>
+            <div class="sep"></div>
+            <li id="add-book">Add New</li>
+            <div class="sep"></div>
+            <li id="contact">Contact</li>
+        </ul>
+      </nav>  
+    </header>
+    <p id="displayDateTime"></p>
+    <h1 id="intro">All Awesome Books</h1>
     <div class="books">
     </div>
-    <div class="sprator"></div>
-    <h2>Add a new book</h2>
-    <div class="form">
+    <section class="add-section">
+     
+     <div class="form">
         <input type="text" class="title" placeholder="Title" style="margin-top: 15px;"><br>
         <input type="text" class="author" placeholder="Author" style="margin-top: 15px;"><br>
         <input type="submit" value="Add" class="add" style="margin-top: 15px;">
-    </div>
+     </div>
+    </section>
+    <section class="Contact-section" id="content-section">
+        <h4>Do have any questions or you just want to say "Hello"?<br>
+            You can reach out to us!
+        </h4>
+        <ul class="Contact-Information">
+            <li>Our e-mail: mail@mail.com</li>
+            <li>Our phone number is: 004358653442</li>
+            <li>Our adress: Streatname 22, 845302 City, Country</li>
+        </ul>
+    </section>
+    <footer>
+        <p class="Copyright">Copyright ..</p>
+    </footer>
     <script src="index.js"></script>  
 </body>
 </html>
