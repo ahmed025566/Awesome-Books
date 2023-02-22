@@ -91,6 +91,10 @@ h1 {
   box-shadow: 2px 2px black;
 }
 
+.remove:hover {
+  cursor: pointer;
+}
+
 .sprator {
   width: 50%;
   height: 2.5px;
@@ -129,6 +133,7 @@ h2 {
   font-size: 17px;
   font-weight: 600;
   border: 3px solid black;
+  cursor: pointer;
   box-shadow: 2px 2px black;
 }
 

@@ -103,7 +103,7 @@ list.onclick = function () {
   list.classList.remove('display-none');
   const intro = document.getElementById('intro');
   intro.innerHTML = 'All Awesome Books';
-  displayDate();  
+  displayDate();
 };
 addNew.onclick = function () {
   const list = document.querySelector('.books');
