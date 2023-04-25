@@ -122,10 +122,13 @@ You can deploy this project using:
 - Twitter: [@AhmedEl18692792](https://twitter.com/AhmedEl18692792)
 - LinkedIn: [Ahmed Salah](https://www.linkedin.com/in/ahmed-salah025566)
 
-👤 **Nurbol Sultanov**
+👤 **Abiy Hussen Aman**
 
-- GitHub: [@everinurmind](https://github.com/everinurmind)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/everinurmind)
+- GitHub: [@Abiy Github](https://github.com/abiy006)
+- Twitter: [@Abit Twitter](https://twitter.com/Abiy62463489)
+- LinkedIn: [@Abit LinkedIn](https://www.linkedin.com/in/abiy-hussen-aman-194587183/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
