@@ -31,7 +31,7 @@ class BookManager {
       remove.appendChild(document.createTextNode('Remove'));
       div.appendChild(remove);
       this.booksDiv.append(div);
-      i++;
+      i += 1;
     });
   }
 
