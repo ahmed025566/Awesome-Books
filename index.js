@@ -71,7 +71,6 @@ class BookManager {
 
   addEventListeners() {
     this.add.onclick = this.addBook.bind(this);
-
     this.booksDiv.addEventListener('click', (e) => {
       if (e.target.classList.contains('remove')) {
         this.deleteBook(e.target.parentElement.getAttribute('data-id'));
@@ -82,7 +81,6 @@ class BookManager {
 }
 const bookManager = new BookManager();
 bookManager.addElementsToPage();
-
 function displayDate() {
   const today = new Date();
   const date = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
@@ -91,11 +89,9 @@ function displayDate() {
 
   document.getElementById('displayDateTime').innerHTML = dateTime;
 }
-
 const list = document.getElementById('list');
 const addNew = document.getElementById('add-book');
 const contact = document.getElementById('contact');
-
 list.onclick = function () {
   const addNew = document.querySelector('.add-section');
   addNew.classList.add('display-none');
