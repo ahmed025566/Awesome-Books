@@ -10,6 +10,7 @@ class BookManager {
     this.addElementsToPage();
     this.addEventListeners();
   }
+
   addElementsToPage() {
     this.booksDiv.innerHTML = '';
     let i = 0;
