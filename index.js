@@ -13,11 +13,12 @@ class BookManager {
 
   addElementsToPage() {
     this.booksDiv.innerHTML = '';
+    let i = 0;
     this.books.forEach((book) => {
       const div = document.createElement('div');
       div.className = 'book';
-      if (book.count % 2 === 0) {
-        div.classList.add('gray');
+      if (i % 2 === 0) {
+        div.style.backgroundColor = 'gray';
       }
       div.setAttribute('data-id', book.id);
       const text = document.createElement('p');
@@ -29,8 +30,8 @@ class BookManager {
       remove.className = 'remove';
       remove.appendChild(document.createTextNode('Remove'));
       div.appendChild(remove);
-
       this.booksDiv.append(div);
+      i += 1;
     });
   }
 
@@ -65,6 +66,7 @@ class BookManager {
   deleteBook(bookID) {
     this.books = this.books.filter((book) => book.id !== +bookID);
     this.addToLocalStorage();
+    this.addElementsToPage();
   }
 
   addEventListeners() {
